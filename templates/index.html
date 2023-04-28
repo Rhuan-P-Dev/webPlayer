@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <title>TOP baixavel 4.0</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="up">
+            <textarea id="search" cols="1" rows="1"></textarea>
+        </div>
+        <div class="down">
+            <div class="left longHeightBar">
+                <div class="left" id="historic"></div>
+                <div class="right clickable scrollButton" id="historicButton">histórico</div>
+            </div>
+            <div class="mid">
+                <div class="up">
+                    <div class="box" id="videoBox"><video id="video" src=""></video></div>
+                </div>
+                <div class="mid">
+                    <div class="videoTimeBar"></div>
+                </div>
+                <div class="down">
+                    <div class="previousExtreme clickable" id="previousExtreme">-15</div>
+                    <div class="previous clickable" id="previous">-5</div>
+                    <div class="pause clickable" id="pause">Pause</div>
+                    <div class="nextExtreme clickable" id="nextExtreme">+5</div>
+                    <div class="next clickable" id="next">+15</div>
+                </div>
+            </div>
+            <div class="right longHeightBar">
+                <div class="left clickable scrollButton" id="searchResultButton">Pesquisa</div>
+                <div class="right" id="searchResult"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
