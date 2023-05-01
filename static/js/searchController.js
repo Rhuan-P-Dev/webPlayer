@@ -43,7 +43,7 @@ export class SearchController{
             }
             if(this.value.length > 1){
 
-                let videos = document.querySelectorAll(".searchResult")
+                let videos = Search.getAllSearchResults()
 
                 for (let index = 0; index < videos.length; index++) {
                     
@@ -57,6 +57,10 @@ export class SearchController{
 
             }
         })
+    }
+
+    getAllSearchResults(){
+        return document.querySelectorAll(".searchResult")
     }
 
     showAllSearchResults(){
@@ -76,7 +80,7 @@ export class SearchController{
     }
 }
 function applyPropertieSearchResults(propertie){
-    let videos = document.querySelectorAll(".searchResult")
+    let videos = Search.getAllSearchResults()
     for (let index = 0; index < videos.length; index++) {
         videos[index].style.display = propertie
     }
