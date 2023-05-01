@@ -9,7 +9,7 @@ video{
     height: 100%;
 }
 
-#historic, #searchResult{
+#historicTab, #searchResultTab{
     border: 3px solid black;
     border-top: 0px;
     height: 100vh;
