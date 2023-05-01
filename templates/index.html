@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="static/css/index.css">
 
+    <script src="static/js/socket.io.min.js"></script>
+
     <script src="static/js/globalFunctions.js"></script>
     <script src="static/js/globalVariables.js"></script>
+
+    <script src="static/js/templates.js"></script>
+
+    <script type="module" src="static/js/serverController.js"></script>
+    <script type="module" src="static/js/searchController.js"></script>
     <script type="module" src="static/js/scrollBarController.js"></script>
     <script type="module" src="static/js/index.js"></script>
 
@@ -16,7 +23,7 @@
 
     <div class="main">
         <div class="up">
-            <textarea id="search" cols="1" rows="1"></textarea>
+            <textarea id="search" cols="1" rows="1" placeholder="ON/OFF"></textarea>
         </div>
         <div class="down">
             <div class="left longHeightBar" id="longHeightBarHistoric" state="closed" side="left">

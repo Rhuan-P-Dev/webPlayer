@@ -8,3 +8,35 @@ function docReady(fn) {
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
+
+function eraseText(text,array){
+    for (let index = 0; index < array.length; index++) {
+
+        let oldText = ""
+
+        do{
+            oldText = text
+
+            text = text.replace(array[index],"")
+
+        }while(text != oldText)
+
+    }
+    return text
+}
+
+function replaceText(text,array){
+    for (let index = 0; index < array[0].length; index++) {
+
+        let oldText = ""
+
+        do{
+            oldText = text
+
+            text = text.replace(array[0][index],array[1][index])
+
+        }while(text != oldText)
+
+    }
+    return text
+}
