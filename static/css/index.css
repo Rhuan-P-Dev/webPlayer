@@ -80,6 +80,8 @@ html,body{
     text-align: center;
     font-size: 30px;
     resize: none;
+    background-color: black;
+    color: white;
 }
 
 .main > .down{
