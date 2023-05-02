@@ -6,6 +6,7 @@ export class VideoController{
 
     setSrc(src){
         this.video.setAttribute("Src",src)
+        Video.setVideoState("paused")
     }
 
     play(){
