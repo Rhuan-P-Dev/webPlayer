@@ -7,6 +7,7 @@ export class VideoController{
     setSrc(src){
         this.video.setAttribute("Src",src)
         Video.setVideoState("paused")
+        Video.setCurrentVolume(0.05)
     }
 
     play(){
