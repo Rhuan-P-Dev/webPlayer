@@ -1,4 +1,8 @@
 
+import { VideoController } from "./videoController.js"
+
+var Video = new VideoController()
+
 export class SearchController{
 
     searchResultTab = document.getElementById("searchResultTab")
@@ -26,6 +30,8 @@ export class SearchController{
         }
 
         this.searchResultTab.innerHTML = result
+
+        Search.addSearchResultsTriggers()
 
     }
 
@@ -78,6 +84,16 @@ export class SearchController{
     hideSearchResult(element){
         element.style.display = "none"
     }
+
+    addSearchResultsTriggers(){
+        let videos = Search.getAllSearchResults()
+        for (let index = 0; index < videos.length; index++) {
+            videos[index].addEventListener("click",function(){
+                Video.setSrc(this.getAttribute("url"))
+            })
+        }
+    }
+
 }
 function applyPropertieSearchResults(propertie){
     let videos = Search.getAllSearchResults()
