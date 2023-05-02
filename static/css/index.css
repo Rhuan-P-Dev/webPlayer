@@ -28,7 +28,7 @@ video{
     overflow: hidden;
 }
 
-/* class predefined */
+/* class predefined  TODO: FIX THE RIGHT AND LEFT BAR, A BARRA É MAIOR DOQUE A TELA*/
 
 .clickable{
     cursor: pointer;
@@ -133,7 +133,8 @@ html,body{
 .main > .down > .mid > .mid > *{
     height: 100%;
     width: 0%;
-    background-color: red;
+    background-color: white;
+    transition: 0.25s;
 }
 
 .main > .down > .mid > .down{

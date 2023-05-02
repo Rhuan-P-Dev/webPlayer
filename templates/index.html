@@ -16,6 +16,7 @@
     <script type="module" src="static/js/searchController.js"></script>
     <script type="module" src="static/js/scrollBarController.js"></script>
     <script type="module" src="static/js/videoController.js"></script>
+    <script type="module" src="static/js/UIController.js"></script>
     <script type="module" src="static/js/index.js"></script>
 
     <title>TOP baixavel 4.0</title>
@@ -33,10 +34,10 @@
             </div>
             <div class="mid">
                 <div class="up">
-                    <div class="box" id="videoBox"><video id="video" src=""></video></div>
+                    <div class="box" id="videoBox"><video id="video" state="paused" loop muted preload="auto" src=""></video></div>
                 </div>
                 <div class="mid">
-                    <div class="videoTimeBar"></div>
+                    <div class="videoTimeBar" id="videoTimeBar"></div>
                 </div>
                 <div class="down">
                     <div class="previousExtreme clickable" id="previousExtreme"><<</div>
