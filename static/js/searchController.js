@@ -1,7 +1,9 @@
 
 import { VideoController } from "./videoController.js"
+import { HistoricController } from "./historicController.js"
 
 var Video = new VideoController()
+var Hisctoric = new HistoricController()
 
 export class SearchController{
 
@@ -90,6 +92,7 @@ export class SearchController{
         for (let index = 0; index < videos.length; index++) {
             videos[index].addEventListener("click",function(){
                 Video.setSrc(this.getAttribute("url"))
+                Hisctoric.add(this)
             })
         }
     }
