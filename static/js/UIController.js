@@ -10,6 +10,9 @@ export class UIController{
     pause = document.getElementById("pause")
     next = document.getElementById("next")
     nextExtreme = document.getElementById("nextExtreme")
+    up = document.getElementById("up")
+    down = document.getElementById("down")
+        
 
     addVideoUITriggers(){
         this.pause.addEventListener("click",function(){
@@ -34,6 +37,14 @@ export class UIController{
         
         this.previousExtreme.addEventListener("click",function(){
             Video.previousExtreme()
+        })
+
+        this.up.addEventListener("click",function(){
+            Video.volumeUp()
+        })
+        
+        this.down.addEventListener("click",function(){
+            Video.volumeDown()
         })
 
     }

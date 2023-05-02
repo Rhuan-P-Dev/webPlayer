@@ -63,6 +63,23 @@ export class VideoController{
         setInterval(updateTimeBar, 100)
     }
 
+    getCurrentVolume(){
+        return this.video.volume
+    }
+
+    setCurrentVolume(volume){
+        this.video.volume = volume
+    }
+
+    volumeUp(){
+        Video.setCurrentVolume(Video.getCurrentVolume() + 0.05)
+    }
+
+    volumeDown(){
+        Video.setCurrentVolume(Video.getCurrentVolume() - 0.05)
+    }
+
+
 }
 
 function updateTimeBar(){
