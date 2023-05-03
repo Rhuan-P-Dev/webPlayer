@@ -18,6 +18,7 @@
     <script type="module" src="static/js/videoController.js"></script>
     <script type="module" src="static/js/UIController.js"></script>
     <script type="module" src="static/js/historicController.js"></script>
+    <script type="module" src="static/js/keyBoardController.js"></script>
     <script type="module" src="static/js/index.js"></script>
 
     <title>TOP baixavel 4.0</title>
@@ -25,22 +26,22 @@
 <body>
 
     <div class="main">
-        <div class="up">
+        <div class="up" id="searchArea" state="open">
             <textarea id="search" cols="1" rows="1" placeholder="ON/OFF"></textarea>
         </div>
-        <div class="down">
+        <div class="down" id="mainDown">
             <div class="left longHeightBar" id="longHeightBarHistoric" state="closed" side="left">
                 <div class="left" id="historicTab"></div>
                 <div class="right clickable scrollButton" id="historicButton">Histórico</div>
             </div>
             <div class="mid">
-                <div class="up">
+                <div class="up" id="vidoeArea">
                     <div class="box" id="videoBox"><video id="video" state="paused" loop preload="auto" src=""></video></div>
                 </div>
                 <div class="mid">
                     <div class="videoTimeBar" id="videoTimeBar"></div>
                 </div>
-                <div class="down">
+                <div class="down" id="videoControls" state="open">
                     <div class="previousExtreme clickable mediaHidden700" id="previousExtreme">PrevEx</div>
                     <div class="down clickable" id="down">DownVol</div>
                     <div class="previous clickable" id="previous">Prev</div>

@@ -82,7 +82,8 @@ html,body{
     height: 70px;
     align-content: center;
     justify-content: center;
-    border-bottom: 3px solid black;
+    overflow: hidden;
+    transition: 0.25s;
 }
 
 .main > .up textarea{
@@ -93,11 +94,14 @@ html,body{
     resize: none;
     background-color: black;
     color: white;
+    overflow: hidden;
 }
 
 .main > .down{
     display: flex;
+    border-top: 3px solid black;
     height: calc(100vh - 70px);
+    transition: 0.25s;
 }
 
 .main > .down > .left{
@@ -117,6 +121,7 @@ html,body{
 
 .main > .down > .mid > .up{
     height: calc(100% - 95px);
+    transition: 0.25s;
 }
 
 .main > .down > .mid > .up > *{
@@ -141,6 +146,8 @@ html,body{
     display: flex;
     flex-wrap: wrap;
     height: 80px;
+    overflow: hidden;
+    transition: 0.25s;
 }
 
 .main > .down > .mid > .down > *{
