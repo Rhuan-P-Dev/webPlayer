@@ -168,11 +168,44 @@ html,body{
 
 /* MEDIA */
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 1000px){
+
+    .main > .down > .mid > .up{
+        height: calc(100% - 80px);
+    }
+
+    .main > .down > .mid > .down{
+        height: 65px;
+    }
 
     .main > .down > .mid > .down > *{
         padding: 5px 10px;
         font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+
+    .mediaHidden700{
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width: 550px){
+
+    .main > .down > .mid > .up{
+        height: calc(100% - 70px);
+    }
+
+    .main > .down > .mid > .down{
+        height: 55px;
+    }
+
+    .main > .down > .mid > .down > *{
+        padding: 2.5px 5px;
+        font-size: 15px;
     }
 
 }
