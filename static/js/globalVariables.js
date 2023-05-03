@@ -14,13 +14,12 @@ const filterTitleArray = [".mp4",
                     "}",
                     "[",
                     "]",
-                    "_",
                     "-",
                     "(",
                     ")",
                     ".webm",]
 
 const replaceTitleArray = [
-    ["  "],
-    [" "]
+    ["  ","_"],
+    [" " ," "],
 ]
