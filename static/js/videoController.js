@@ -6,18 +6,14 @@ export class VideoController{
 
     setSrc(src){
         this.video.setAttribute("Src",src)
-        Video.setVideoState("paused")
-        Video.setCurrentVolume(0.05)
     }
 
     play(){
         this.video.play()
-        Video.setVideoState("play")
     } 
     
     pause(){
         this.video.pause()
-        Video.setVideoState("paused")
     }
 
     next(){
@@ -80,6 +76,21 @@ export class VideoController{
         Video.setCurrentVolume(Video.getCurrentVolume() - 0.05)
     }
 
+    switchPlayState(){
+        if(Video.getVideoState() == "paused"){
+            Video.play()
+            Video.setVideoState("play")
+        }else{
+            Video.pause()
+            Video.setVideoState("paused")
+        }
+    }
+
+    changeVideo(url){
+        Video.setSrc(url)
+        Video.setVideoState("paused")
+        Video.setCurrentVolume(0.05)
+    }
 
 }
 

@@ -99,7 +99,7 @@ export class SearchController{
         let videos = Search.getAllSearchResults()
         for (let index = 0; index < videos.length; index++) {
             videos[index].addEventListener("click",function(){
-                Video.setSrc(this.getAttribute("url"))
+                Video.changeVideo(this.getAttribute("url"))
                 Hisctoric.add(this)
             })
         }

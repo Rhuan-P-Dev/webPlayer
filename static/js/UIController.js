@@ -24,11 +24,7 @@ export class UIController{
 
     addVideoUITriggers(){
         this.pause.addEventListener("click",function(){
-            if(Video.getVideoState() == "paused"){
-                Video.play()
-            }else{
-                Video.pause()
-            }
+            Video.switchPlayState()
         })
 
         this.next.addEventListener("click",function(){
