@@ -5,10 +5,14 @@ import { HistoricController } from "./historicController.js"
 var Video = new VideoController()
 var Hisctoric = new HistoricController()
 
+var searchTrie = new CustomTrie()
+
 export class SearchController{
 
     searchResultTab = document.getElementById("searchResultTab")
     search = document.getElementById("search")
+
+    previousSearch = null
 
     initSearchResultTab(data){
 
@@ -38,30 +42,34 @@ export class SearchController{
     }
 
     addSearchTrigger(){
-        // TODO: add a Trie
+
         this.search.addEventListener("keyup",function(){
+
             if(this.value == "ON"){
                 Search.showAllSearchResults()
                 return
             }
+
             if(this.value == "OFF"){
-                // dead code?
                 Search.hideAllSearchResults()
                 return
             }
-            if(this.value.length > 1){
 
-                let videos = Search.getAllSearchResults()
+            if(this.previousSearch != null){
+                for (let index = 0; index < this.previousSearch.length; index++) {
+                    Search.hideSearchResult(this.previousSearch[index])
+                }
+            }
+            
+            if(this.value.length >= 2){
+
+                let videos = searchTrie.search(this.value)
 
                 for (let index = 0; index < videos.length; index++) {
-                    
-                    if(videos[index].innerText.match(this.value)){
-                        Search.showSearchResult(videos[index])
-                    }else{
-                        Search.hideSearchResult(videos[index])
-                    }
-
+                    Search.showSearchResult(videos[index])
                 }
+
+                this.previousSearch = videos
 
             }
         })
@@ -97,7 +105,25 @@ export class SearchController{
         }
     }
 
+    initCustomTrie(){
+        let videos = Search.getAllSearchResults()
+        for (let index = 0; index < videos.length; index++) {
+
+            let titleSplited = videos[index].innerText.split(" ")
+
+            for (let indey = 0; indey < titleSplited.length; indey++) {
+
+                if(titleSplited[indey].length >= 3){
+                    searchTrie.add(titleSplited[indey],videos[index])
+                }
+
+            }
+        }
+
+    }
+
 }
+
 function applyPropertieSearchResults(propertie){
     let videos = Search.getAllSearchResults()
     for (let index = 0; index < videos.length; index++) {
