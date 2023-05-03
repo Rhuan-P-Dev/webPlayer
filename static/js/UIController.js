@@ -56,11 +56,21 @@ export class UIController{
     switchVideoControlsVisibility(){
         if(UI.getVideoControlsState() == "closed"){
             UI.showVideoControls()
+            UI.constrictVideoArea()
             UI.setVideoControlsState("open")
         }else{
             UI.hideVideoControls()
+            UI.extendVideoArea()
             UI.setVideoControlsState("closed")
         }
+    }
+
+    extendVideoArea(){
+        this.vidoeArea.style.height = "calc(100% - 15px)"
+    }
+
+    constrictVideoArea(){
+        this.vidoeArea.setAttribute("style","")
     }
 
     getVideoControlsState(){
@@ -73,20 +83,24 @@ export class UIController{
 
     showVideoControls(){
         this.videoControls.setAttribute("style","")
-        this.vidoeArea.setAttribute("style","")
     }
 
     hideVideoControls(){
         this.videoControls.style.height = "0px"
-        this.vidoeArea.style.height = "calc(100% - 15px)"
     }
 
     switchSerchAreaVisibility(){
         if(UI.getSearchAreaState() == "closed") {
             UI.showSearchArea()
+            UI.constrictMainDown()
+            UI.constrictHistoricTab()
+            UI.constrictSearchResultTab()
             UI.setSearchAreaState("open")
         }else{
             UI.hideSearchArea()
+            UI.extendMainDown()
+            UI.extendHistoricTab()
+            UI.extendSearchResultTab()
             UI.setSearchAreaState("closed")
         }
     }
@@ -99,20 +113,36 @@ export class UIController{
         this.searchArea.setAttribute("state", state)
     }
 
+    constrictMainDown(){
+        this.mainDown.setAttribute("style", "")
+    }
+
+    constrictHistoricTab(){
+        this.historicTab.setAttribute("style", "")
+    }
+
+    constrictSearchResultTab(){
+        this.searchResultTab.setAttribute("style", "")
+    }
+
+    extendMainDown(){
+        this.mainDown.style.height = "calc(100% - 0px)"
+    }
+
+    extendHistoricTab(){
+        this.historicTab.style.height = "calc(100vh - 0px)"
+    }
+
+    extendSearchResultTab(){
+        this.searchResultTab.style.height = "calc(100vh - 0px)"
+    }
+
     showSearchArea(){
         this.searchArea.setAttribute("style", "")
-
-        this.mainDown.setAttribute("style", "")
-        this.historicTab.setAttribute("style", "")
-        this.searchResultTab.setAttribute("style", "")
     }
 
     hideSearchArea(){
         this.searchArea.style.height = "0px"
-
-        this.mainDown.style.height = "calc(100% - 0px)"
-        this.historicTab.style.height = "calc(100vh - 0px)"
-        this.searchResultTab.style.height = "calc(100vh - 0px)"
     }
 
 }
