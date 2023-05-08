@@ -10,7 +10,7 @@ export class HistoricController{
     add(element){
         let copy = element.cloneNode(true)
         copy.setAttribute("class","clickable")
-        historicTab.insertAdjacentElement("beforeend",copy)
+        historicTab.insertAdjacentElement("afterbegin",copy)
         Historic.addTrigger(copy)
     }
 
