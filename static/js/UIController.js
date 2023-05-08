@@ -55,22 +55,30 @@ export class UIController{
 
     switchVideoControlsVisibility(){
         if(UI.getVideoControlsState() == "closed"){
+            UI.switchVideoControlsVisibilityOpen()
+        }else{
+            UI.switchVideoControlsVisibilityClosed()
+        }
+    }
+
+    switchVideoControlsVisibilityOpen(){
             UI.showVideoControls()
             UI.constrictVideoArea()
             UI.setVideoControlsState("open")
-        }else{
+    }
+
+    switchVideoControlsVisibilityClosed(){
             UI.hideVideoControls()
             UI.extendVideoArea()
             UI.setVideoControlsState("closed")
         }
-    }
 
     extendVideoArea(){
         this.vidoeArea.style.height = "calc(100% - 15px)"
     }
 
     constrictVideoArea(){
-        this.vidoeArea.setAttribute("style","")
+        UI.setAttribute(this.vidoeArea,"style","")
     }
 
     getVideoControlsState(){
@@ -78,11 +86,11 @@ export class UIController{
     }
 
     setVideoControlsState(state){
-        this.videoControls.setAttribute("state", state)
+        UI.setAttribute(this.videoControls,"state",state)
     }
 
     showVideoControls(){
-        this.videoControls.setAttribute("style","")
+        UI.setAttribute(this.videoControls,"style","")
     }
 
     hideVideoControls(){
@@ -91,18 +99,26 @@ export class UIController{
 
     switchSerchAreaVisibility(){
         if(UI.getSearchAreaState() == "closed") {
+            UI.switchSerchAreaVisibilityOpen()
+        }else{
+            UI.switchSerchAreaVisibilityClosed()
+        }
+    }
+
+    switchSerchAreaVisibilityOpen(){
             UI.showSearchArea()
             UI.constrictMainDown()
             UI.constrictHistoricTab()
             UI.constrictSearchResultTab()
             UI.setSearchAreaState("open")
-        }else{
+    }
+
+    switchSerchAreaVisibilityClosed(){
             UI.hideSearchArea()
             UI.extendMainDown()
             UI.extendHistoricTab()
             UI.extendSearchResultTab()
             UI.setSearchAreaState("closed")
-        }
     }
 
     getSearchAreaState(){
@@ -110,19 +126,19 @@ export class UIController{
     }
     
     setSearchAreaState(state) {
-        this.searchArea.setAttribute("state", state)
+        UI.setAttribute(this.searchArea,"state",state)
     }
 
     constrictMainDown(){
-        this.mainDown.setAttribute("style", "")
+        UI.setAttribute(this.mainDown,"style","")
     }
 
     constrictHistoricTab(){
-        this.historicTab.setAttribute("style", "")
+        UI.setAttribute(this.historicTab,"style","")
     }
 
     constrictSearchResultTab(){
-        this.searchResultTab.setAttribute("style", "")
+        UI.setAttribute(this.searchResultTab,"style","")
     }
 
     extendMainDown(){
@@ -138,13 +154,16 @@ export class UIController{
     }
 
     showSearchArea(){
-        this.searchArea.setAttribute("style", "")
+        UI.setAttribute(this.searchArea,"style","")
     }
 
     hideSearchArea(){
         this.searchArea.style.height = "0px"
     }
 
+    setAttribute(element,name,value){
+        element.setAttribute(name,value)
+    }
 }
 
 var UI = new UIController()
