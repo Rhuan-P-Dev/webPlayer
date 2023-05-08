@@ -180,14 +180,25 @@ export class UIController{
 
     switchScrollTab(element){
         if(element.getAttribute("state") == "closed"){
-            UI.openScrollBar(element.getAttribute("side"))
-            element.setAttribute("state","open")
+            UI.switchScrollTabOpen(element)
         }else{
-            UI.closeScrollBar(element.getAttribute("side"))
-            element.setAttribute("state","closed")
+            UI.switchScrollTabClosed(element)
         }
         
     }
+
+    switchScrollTabOpen(element){
+        UI.openScrollBar(element.getAttribute("side"))
+        element.setAttribute("state","open")
+    }
+    
+    switchScrollTabClosed(element){
+        UI.closeScrollBar(element.getAttribute("side"))
+        element.setAttribute("state","closed")
+    }
+    
+    
+
 
     openScrollBar(side){
 
