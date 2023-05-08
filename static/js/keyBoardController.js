@@ -19,7 +19,7 @@ export class KeyBoardController{
     addKeyBoardTrigger(){
 
         document.querySelector("html").addEventListener("keydown",function(e){
-            if(keyBoardFunctions[e["key"]]){
+            if(keyBoardFunctions[e["key"]] && !e["shiftKey"]){
                 keyBoardFunctions[e["key"]]()
             }
 
