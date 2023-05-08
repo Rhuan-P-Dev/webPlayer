@@ -9,10 +9,23 @@ const keyBoardFunctions = {"ArrowUp":Video.volumeUp,
                             "ArrowDown":Video.volumeDown,
                             " ":Video.switchPlayState,
                             "ArrowRight":Video.next,
-                            "ArrowLeft":Video.previous}
+                            "ArrowLeft":Video.previous,
+                            "Escape": function(){
+                                UI.switchScrollTabClosed(UI.getLeftTab())
+                                UI.switchScrollTabClosed(UI.getRightTab())
+                            },
+                            "Home": function(){Video.setCurrentTime(0)}
+                        }
 
 const keyBoardShiftFunctions = {"Backspace":UI.switchVideoControlsVisibility,
-                                "Enter":UI.switchSerchAreaVisibility}
+                                "Enter":UI.switchSerchAreaVisibility,
+                                "Delete":function(){
+                                    UI.switchVideoControlsVisibilityClosed()
+                                    UI.switchSerchAreaVisibilityClosed()
+                                    keyBoardFunctions["Escape"]()
+                                },
+                                "ArrowRight":Video.nextExtreme,
+                                "ArrowLeft":Video.previousExtreme}
 
 export class KeyBoardController{
 
