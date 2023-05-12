@@ -33,6 +33,7 @@ function browseInit(){
     UI.addUIScrollButtonsTriggers()
 
     Video.initAutoUpdateTimeBar()
+    Video.addVideoTimeBarTrigger()
 
     KeyBoard.addKeyBoardTrigger()
 

@@ -3,6 +3,7 @@ export class VideoController{
 
     video = document.getElementById("video")
     videoTimeBar = document.getElementById("videoTimeBar")
+    videoTimeBox = document.getElementById("videoTimeBox")
 
     setSrc(src){
         this.video.setAttribute("Src",src)
@@ -56,6 +57,10 @@ export class VideoController{
         return ( ( Video.getCurrentTime() / Video.getMaxTime() ) * 100 ).toFixed(2)
     }
 
+    setPercentage(percentage){
+        Video.setCurrentTime(Video.getMaxTime() * percentage)
+    }
+
     initAutoUpdateTimeBar(){
         setInterval(updateTimeBar, 100)
     }
@@ -90,6 +95,12 @@ export class VideoController{
         Video.setSrc(url)
         Video.setVideoState("paused")
         Video.setCurrentVolume(0.05)
+    }
+
+    addVideoTimeBarTrigger(){
+        this.videoTimeBox.addEventListener("click",function(e){
+            Video.setPercentage( ( e["x"] - videoTimeBox.getBoundingClientRect()["x"] ) / videoTimeBox.getBoundingClientRect()["width"] )
+        })
     }
 
 }

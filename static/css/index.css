@@ -162,8 +162,12 @@ html,body{
 
 /* INTERACTIVE */
 
-.main > .down > .mid > .down > *:hover, .scrollButton:hover{
+.main > .down > .mid > .down > *:hover, .scrollButton:hover,.main > .down > .mid > .mid:hover{
     border: 1px solid white;
+}
+
+.main > .down > .mid > .mid:hover{
+    background-color: black;
 }
 
 #historicTab > *:hover, #searchResultTab > *:hover{
