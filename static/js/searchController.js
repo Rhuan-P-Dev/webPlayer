@@ -12,7 +12,7 @@ export class SearchController{
     searchResultTab = document.getElementById("searchResultTab")
     search = document.getElementById("search")
 
-    previousSearch = null
+    previousSearch = []
 
     initSearchResultTab(data){
 
@@ -43,6 +43,8 @@ export class SearchController{
 
     addSearchTrigger(){
 
+        let previousSearch = this.previousSearch
+
         this.search.addEventListener("keyup",function(){
 
             if(this.value == "ON"){
@@ -55,23 +57,40 @@ export class SearchController{
                 return
             }
 
-            if(this.previousSearch != null){
-                for (let index = 0; index < this.previousSearch.length; index++) {
-                    Search.hideSearchResult(this.previousSearch[index])
+
+            if(previousSearch != []){
+                
+                for (let index = 0; index < previousSearch.length; index++) {
+
+                    for (let indey = 0; indey < previousSearch[index].length; indey++) {
+                        Search.hideSearchResult(previousSearch[index][indey])
+                    }
+                    
                 }
+
+                previousSearch = []
+            }
+
+            let splitedSearch = this.value.split("|")
+
+            for (let index = 0; index < splitedSearch.length; index++) {
+
+                let tempValue = splitedSearch[index]
+                
+                if(tempValue.length >= 2){
+
+                    let videos = searchTrie.search(tempValue)
+    
+                    for (let index = 0; index < videos.length; index++) {
+                        Search.showSearchResult(videos[index])
+                    }
+    
+                    previousSearch[previousSearch.length] = videos
+    
+                }
+                
             }
             
-            if(this.value.length >= 2){
-
-                let videos = searchTrie.search(this.value)
-
-                for (let index = 0; index < videos.length; index++) {
-                    Search.showSearchResult(videos[index])
-                }
-
-                this.previousSearch = videos
-
-            }
         })
     }
 
