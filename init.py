@@ -32,5 +32,5 @@ def getVideosUrls():
 if __name__ == "__main__":
     print("Server started!")
     print("You may now connect with a browser at http://127.0.0.1:5005/")
-    socketio.run(app, host='0.0.0.0', port=5005)
+    socketio.run(app, host='127.0.0.1', port=5005)
     #socketio.run(app)
