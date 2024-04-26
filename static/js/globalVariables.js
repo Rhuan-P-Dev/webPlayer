@@ -17,7 +17,10 @@ const filterTitleArray = [".mp4",
                     "-",
                     "(",
                     ")",
-                    ".webm",]
+                    ".webm",
+                    "y2mate.com ",
+                    "FHR",
+                    "yt1s.com "]
 
 const replaceTitleArray = [
     ["  ","_"],
