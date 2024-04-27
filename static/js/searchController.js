@@ -5,8 +5,6 @@ import { HistoricController } from "./historicController.js"
 var Video = new VideoController()
 var Hisctoric = new HistoricController()
 
-var searchTrie = new CustomTrie()
-
 export class SearchController{
 
     searchResultTab = document.getElementById("searchResultTab")

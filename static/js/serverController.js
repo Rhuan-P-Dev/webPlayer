@@ -14,6 +14,5 @@ export class ServerController {
 socket.on('from_server', function(msg) {
     if(msg.cmd == "allVideosUrls"){
         Search.initSearchResultTab(msg.data)
-        Search.initCustomTrie()
     }
 })
