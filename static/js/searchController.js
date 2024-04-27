@@ -79,10 +79,16 @@ export class SearchController{
                 
                 if(tempValue.length >= 2){
 
-                    let videos = searchTrie.search(tempValue)
+                    let videos = Search.getAllSearchResults()
     
                     for (let index = 0; index < videos.length; index++) {
-                        Search.showSearchResult(videos[index])
+
+                        if(videos[index].innerText.includes(tempValue)){
+
+                            Search.showSearchResult(videos[index])
+
+                        }
+
                     }
     
                     previousSearch[previousSearch.length] = videos
@@ -122,23 +128,6 @@ export class SearchController{
                 Hisctoric.add(this)
             })
         }
-    }
-
-    initCustomTrie(){
-        let videos = Search.getAllSearchResults()
-        for (let index = 0; index < videos.length; index++) {
-
-            let titleSplited = videos[index].innerText.split(" ")
-
-            for (let indey = 0; indey < titleSplited.length; indey++) {
-
-                if(titleSplited[indey].length >= 3){
-                    searchTrie.add(titleSplited[indey],videos[index])
-                }
-
-            }
-        }
-
     }
 
 }
